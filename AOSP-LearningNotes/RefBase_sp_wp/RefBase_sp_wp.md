@@ -18,15 +18,33 @@ This is a document that records things I've learned about `RefBase`, `sp`, and `
 
 ## My Implementation
 
+#### v1
 * Define a class named `RefBase` and `RefBase::weakref`.
 
 	```
 	# Variables
 	RefBase
 	├── class weakref
-	│	├── <int> mCount
-	│	└── <RefBase*> mBase
+	│	├── int mCount
+	│	└── RefBase* mBase
 	└── <weakref> mRef
 
 	# Functions
+	RefBase
+	├── protected RefBase()
+	├── public void inc()
+	└── public void dec()
+	```
+
+* Define a class named `sp`
+
+	```
+	# Variables
+	sp<T>
+	└── T* m_ptr
+
+	# Functions
+	sp<T>
+	├── public sp(T*)
+	└── public inline T* get()
 	```
